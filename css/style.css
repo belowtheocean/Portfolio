@@ -290,9 +290,26 @@ body[data-theme="dark"] .hero-card {
     font-size: clamp(2.9rem, 7vw, 4.8rem);
     letter-spacing: -1.2px;
     color: var(--text-main);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.hero-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: #000;
 }
 
 body[data-theme="dark"] .hero-title {
+}
+
+body[data-theme="dark"] .hero-title::after {
+    background: #fff;
 }
 
 .hero-name {
