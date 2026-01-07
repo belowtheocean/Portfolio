@@ -28,7 +28,7 @@
     --footer-bg: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,249,245,0.82));
     --footer-text: #2d4a3e;
 
-    --totoro-image: url("../assets/img/My-Neighbor-Totoro-clair.png");
+    --totoro-image: url("../assets/img/flowers.png");
 
     --transition-base: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --radius-lg: 24px;
@@ -49,25 +49,25 @@ body[data-theme="dark"] {
     --card-border: #1e2d4a;
     --glass-blur: 18px;
 
-    --brand: #daa520;
-    --brand-2: #f0c040;
-    --brand-3: #ffd700;
+    --brand: #f5f5f0;
+    --brand-2: #f5f5f0;
+    --brand-3: #f5f5f0;
 
-    --text-main: #e8f2ee;
-    --text-soft: #b8d4c8;
-    --text-muted: #90b5a5;
+    --text-main: #f5f5f0;
+    --text-soft: #e8e8e0;
+    --text-muted: #d0d0c8;
 
     --shadow-soft: 0 8px 32px rgba(5, 15, 30, 0.4);
     --shadow-strong: 0 12px 48px rgba(3, 10, 25, 0.55);
 
-    --gradient-hero: radial-gradient(circle at 20% 20%, rgba(218, 165, 32, 0.12) 0, transparent 48%),
-                     radial-gradient(circle at 80% 30%, rgba(255, 215, 0, 0.10) 0, transparent 45%),
+    --gradient-hero: radial-gradient(circle at 20% 20%, rgba(245, 245, 240, 0.08) 0, transparent 48%),
+                     radial-gradient(circle at 80% 30%, rgba(245, 245, 240, 0.06) 0, transparent 45%),
                      linear-gradient(135deg, #0e1628 0%, #132038 50%, #1a2545 100%);
     --gradient-card: linear-gradient(155deg, rgba(30, 42, 68, 0.95), rgba(19, 32, 56, 0.88));
-    --gradient-cta: linear-gradient(120deg, #daa520, #f0c040);
+    --gradient-cta: linear-gradient(120deg, #f5f5f0, #e8e8e0);
     --footer-bg: linear-gradient(135deg, rgba(14,22,40,0.95), rgba(10,18,35,0.92));
-    --footer-text: #e8f2ee;
-    --totoro-image: url("../assets/img/My-Neighbor-Totoro-sombre.png");
+    --footer-text: #f5f5f0;
+    --totoro-image: url("../assets/img/moon.png");
     color-scheme: dark;
 }
 
@@ -115,8 +115,6 @@ p { color: var(--text-soft); font-weight: 400; line-height: 1.7; }
 /* Glass effect utility */
 .glass {
     background: var(--card);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--card-border);
     box-shadow: var(--shadow-soft);
 }
@@ -217,56 +215,35 @@ body[data-theme="dark"] .navbar.scrolled {
    ============================================ */
 .hero {
     min-height: 100vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 8rem 1.5rem 6rem;
-    background: var(--gradient-hero);
+    padding: 8rem 0 6rem;
+    background-image: var(--totoro-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     overflow: hidden;
+    margin-left: calc(-50vw + 50%);
 }
 
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: var(--totoro-image);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.5;
+    background: var(--gradient-hero);
+    opacity: 0.6;
     z-index: 1;
 }
 
 .hero::after {
-    content: "🌸";
-    position: absolute;
-    inset: 0;
-    font-size: 25px;
-    color: rgba(255, 182, 193, 0.5);
-    text-shadow: 
-        0 0 20px rgba(255, 182, 193, 0.6),
-        0 0 10px rgba(255, 192, 203, 0.4);
-    z-index: 3;
-    pointer-events: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-around;
-    gap: 8%;
-    padding: 5%;
-    animation: floatFlowers 20s ease-in-out infinite;
+    content: none;
 }
 
 body[data-theme="dark"] .hero::after {
-    content: "✨";
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    text-shadow: 
-        0 0 10px rgba(147, 197, 253, 0.8),
-        0 0 20px rgba(147, 197, 253, 0.5),
-        0 0 5px rgba(255, 255, 255, 0.9);
-    animation: twinkleStars 3s ease-in-out infinite;
+    content: none;
 }
 
 @keyframes floatFlowers {
@@ -293,11 +270,9 @@ body[data-theme="dark"] .hero::after {
     width: min(95vw, 780px);
     padding: clamp(2rem, 4vw, 3.2rem);
     border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1.5px solid rgba(200, 228, 217, 0.15);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(200, 228, 217, 0.25);
     box-shadow: 0 8px 32px rgba(95, 179, 134, 0.08), 0 2px 8px rgba(45, 74, 62, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -307,11 +282,9 @@ body[data-theme="dark"] .hero::after {
 }
 
 body[data-theme="dark"] .hero-card {
-    background: rgba(30, 42, 68, 0.05);
-    border: 1.5px solid rgba(218, 165, 32, 0.25);
-    box-shadow: 0 8px 32px rgba(218, 165, 32, 0.12), 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(218, 165, 32, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(30, 42, 68, 0.15);
+    border: 1.5px solid rgba(245, 245, 240, 0.20);
+    box-shadow: 0 8px 32px rgba(5, 15, 30, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(245, 245, 240, 0.08);
 }
 
 .hero-title {
@@ -323,7 +296,7 @@ body[data-theme="dark"] .hero-card {
 }
 
 body[data-theme="dark"] .hero-title {
-    text-shadow: 0 2px 12px rgba(14, 22, 40, 0.6), 0 1px 3px rgba(126, 196, 165, 0.2);
+    text-shadow: 0 2px 12px rgba(14, 22, 40, 0.6), 0 1px 3px rgba(245, 245, 240, 0.2);
 }
 
 .hero-name {
@@ -345,7 +318,7 @@ body[data-theme="dark"] .hero-title {
 }
 
 body[data-theme="dark"] .subtitle {
-    text-shadow: 0 1px 8px rgba(14, 22, 40, 0.7), 0 1px 2px rgba(126, 196, 165, 0.15);
+    text-shadow: 0 1px 8px rgba(14, 22, 40, 0.7), 0 1px 2px rgba(245, 245, 240, 0.15);
 }
 
 
@@ -391,6 +364,17 @@ body[data-theme="dark"] .subtitle {
 
 .cta-button:active {
     transform: translateY(-2px);
+}
+
+body[data-theme="dark"] .cta-button {
+    background: #4a4a4a;
+    color: #f5f5f0;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+body[data-theme="dark"] .cta-button:hover {
+    background: #5a5a5a;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
 }
 
 .hero-badges {
@@ -643,8 +627,8 @@ body[data-theme="dark"] .projects {
 }
 
 body[data-theme="dark"] .project-github-btn {
-    background: linear-gradient(120deg, rgba(126, 196, 165, 0.18), rgba(146, 211, 187, 0.12));
-    border-color: rgba(126, 196, 165, 0.35);
+    background: linear-gradient(120deg, rgba(245, 245, 240, 0.12), rgba(245, 245, 240, 0.08));
+    border-color: rgba(245, 245, 240, 0.25);
 }
 
 .project-github-btn:hover {
@@ -654,8 +638,8 @@ body[data-theme="dark"] .project-github-btn {
 }
 
 body[data-theme="dark"] .project-github-btn:hover {
-    background: linear-gradient(120deg, rgba(126, 196, 165, 0.30), rgba(146, 211, 187, 0.22));
-    border-color: rgba(126, 196, 165, 0.55);
+    background: linear-gradient(120deg, rgba(245, 245, 240, 0.20), rgba(245, 245, 240, 0.15));
+    border-color: rgba(245, 245, 240, 0.35);
 }
 
 .project-github-btn span {
@@ -725,6 +709,10 @@ body[data-theme="dark"] .contact {
     border-color: rgba(125, 141, 255, 0.4);
     background: var(--gradient-cta);
     color: #fff;
+}
+
+body[data-theme="dark"] .contact-button:hover {
+    color: #0e1628;
 }
 
 .contact-icon {
